@@ -1,0 +1,19 @@
+post:
+  tags:
+    - order-webhooks
+  summary: Order ready for preparation (sync)
+  description: >
+    This webhook will be invoked when we have determined that an order is ready
+    for preparation. Upon receiving the request, you should perform any
+    preparation-related activies, such as sending the order to the POS system /
+    kitchen screen.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/order-ready-for-preparation'
+  responses:
+    '200':
+      description: >-
+        Respond with a 200 status code to indicate that you have received the notification.
