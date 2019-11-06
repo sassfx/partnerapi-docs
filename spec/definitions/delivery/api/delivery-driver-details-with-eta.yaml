@@ -1,7 +1,7 @@
 type: object
 properties:
   EtaAtDeliveryAddress:
-    descritpion: This should represent the delivery partner's best guess at when the driver will arrive at the delivery address.
+    description: This should represent the delivery partner's best guess at when the driver will arrive at the delivery address.
     format: date-time
     type: string
   Location:

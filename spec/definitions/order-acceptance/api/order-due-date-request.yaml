@@ -1,0 +1,8 @@
+type: object
+properties:
+  DueDate:
+    description: The updated ETA for the order
+    format: date-time
+    type: string
+example:
+  DueDate: '2019-12-25T14:45:28Z'

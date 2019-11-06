@@ -1,0 +1,26 @@
+put:
+  tags:
+  - order-acceptance-api
+  summary: "Update order ETA"
+  description: >
+    Use this to update the estimated time of arrival for an order (i.e. when you expect the customer to receive the food).
+    NOTE: An initial estimate is given [upon acceptance](#/paths/~1orders~1{orderId}~1accept/put). This endpoint can be used to update that estimate.
+  parameters:
+    - name: orderId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/order-due-date-request'
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: The due date is missing, or out of range (either in the past, or > 7 days in the future).
+    '404':
+      description: The order could not be found.
