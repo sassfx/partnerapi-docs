@@ -1,0 +1,15 @@
+type: object
+properties:
+  QueryId:
+    type: string
+  RestaurantId:
+    type: number
+  Reason:
+    type: string
+  Tenant:
+    type: string
+example:
+  QueryId: '123456'
+  RestaurantId: '110230'
+  Reason: 'Customer did not answer the door'
+  Tenant: 'uk'

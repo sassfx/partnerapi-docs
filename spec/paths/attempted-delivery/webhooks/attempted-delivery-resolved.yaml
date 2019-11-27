@@ -1,0 +1,14 @@
+post:
+  tags:
+  - attempted-delivery-webhooks
+  summary: Attempted Delivery Event Resolved
+  description: "This webhook will be invoked whenever an attempted delivery event has been resolved as cancelled or for redelivery"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          "$ref": "#/definitions/attempted-delivery-resolved"
+  responses:
+    '200':
+      description: Respond with a 200 status code to indicate that you have received the notification.

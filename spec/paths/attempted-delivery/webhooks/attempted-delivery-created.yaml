@@ -1,0 +1,14 @@
+post:
+  tags:
+  - attempted-delivery-webhooks
+  summary: Attempted Delivery Event Created
+  description: "This webhook will be invoked whenever an attempted delivery event is created from the device."
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          "$ref": "#/definitions/attempted-delivery-created"
+  responses:
+    '200':
+      description: Respond with a 200 status code to indicate that you have received the notification.

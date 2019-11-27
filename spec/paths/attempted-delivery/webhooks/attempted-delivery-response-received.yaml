@@ -1,0 +1,14 @@
+post:
+  tags:
+  - attempted-delivery-webhooks
+  summary: Attempted Delivery Customer Response Received
+  description: "This webhook will be invoked whenever the customer responds to the attempted delivery notification."
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          "$ref": "#/definitions/attempted-delivery-response-received"
+  responses:
+    '200':
+      description: Respond with a 200 status code to indicate that you have received the notification.

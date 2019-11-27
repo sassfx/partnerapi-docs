@@ -1,0 +1,43 @@
+type: object
+properties:
+  QueryId:
+    type: string
+  OrderId:
+    type: string
+  Tenant:
+    type: string
+  Resolution:
+    type: object
+    properties:
+      Type:
+        type: string
+        enum:
+          - Cancellation
+          - Redelivery
+      Cancellation:
+        type: object
+        description: The cancellation properties. Only required if cancelling, otherwise pass a Redelivery object
+        properties:
+          Reason:
+            type: string
+      Redelivery:
+        type: object
+        description: The redelivery properties. Only required if redelivering, otherwise pass a Cancellation object
+        properties:
+          Status:
+            type: string
+          NewDueDate:
+            format: date-time
+            type: string
+          CustomerTimeZone:
+            type: string
+example:
+  QueryId: '123456'
+  OrderId: 'wiej234idf09i29jijgf4'
+  Tenant: 'uk'
+  Resolution:
+    Type: 'Redelivery'
+    Redelivery:
+      Status: 'Repreparing'
+      NewDueDate: '2018-03-10T14:45:28Z'
+      CustomerTimeZone: 'GMT'
