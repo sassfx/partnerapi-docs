@@ -1,0 +1,10 @@
+type: object
+properties:
+  ReasonCode:
+    type: string
+    description: The reason the attempted delivery event was created
+    enum:
+    - ProblemWithAddress
+    - NoAnswer
+example:
+  ReasonCode: "ProblemWithAddress|NoAnswer"

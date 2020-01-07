@@ -166,6 +166,8 @@ tags:
     x-displayName: Order Acceptance Webhooks
   - name: attempted-delivery-webhooks
     x-displayName: Attempted Delivery Webhooks
+  - name: attempted-delivery-api
+    x-displayName: Attempted Delivery Api
   - name: order-api
     x-displayName: Order API
   - name: order-webhooks
@@ -189,6 +191,7 @@ x-tagGroups:
       - order-acceptance-api
       - order-acceptance-webhooks
       - attempted-delivery-webhooks
+      - attempted-delivery-api
   - name: Delivery Pools
     tags:
       - delivery-pools-api

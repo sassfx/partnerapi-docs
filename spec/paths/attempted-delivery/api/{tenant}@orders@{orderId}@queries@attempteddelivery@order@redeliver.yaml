@@ -1,0 +1,45 @@
+
+post:
+  tags:
+    - attempted-delivery-api
+  summary: Request Redelivery of the Order
+  description: >- 
+    If the customer responds, then you can trigger the redelivery of an order through this endpoint
+  parameters:
+    - name: tenant
+      in: path
+      description: Request tenant eg uk.
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Id for the order.
+      required: true
+      schema:
+        type: string
+    - name: Authorization
+      in: header
+      description: Containing a partner issued API key e.g. JE-API-KEY ABCDE123456789
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    description: >-
+      An object for providing the new status of the order and the updated due date
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/resolve-attempted-delivery-redeliver'
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: Bad Request - returned if providing invalid data such as an unacceptable reason code
+    '401':
+      description: Unauthorized - consumer has not provided the necessary credentials
+    '404':
+      description: Resource not found 
+    '500':
+      description: Internal server error

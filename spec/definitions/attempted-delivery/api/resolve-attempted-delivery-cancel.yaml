@@ -1,0 +1,13 @@
+type: object
+properties:
+  ReasonCode:
+    type: string
+    description: The reason the order has been cancelled
+    enum:
+    - NewAddressNotWithinDeliveryArea
+    - UnableToReprepare
+    - DriverNoLongerAvailable
+    - AreaIsUnsafe
+    - CustomerDoesnotWantOrderAnymore
+example:
+  ReasonCode: "NewAddressNotWithinDeliveryArea|UnableToReprepare|DriverNoLongerAvailable|AreaIsUnsafe|CustomerDoesnotWantOrderAnymore"

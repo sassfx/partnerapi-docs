@@ -1,0 +1,44 @@
+post:
+  tags:
+    - attempted-delivery-api
+  summary: Delivery Attempt Failed
+  description: >- 
+    If the customer hasn't answered the door to collect the order, then a attempted delivery event can be created using this endpoint.
+  parameters:
+    - name: tenant
+      in: path
+      description: Request tenant eg uk.
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Id for the order.
+      required: true
+      schema:
+        type: string
+    - name: Authorization
+      in: header
+      description: Containing a partner issued API key e.g. JE-API-KEY ABCDE123456789
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    description: >-
+      An object for providing the reason that the attempted delivery event is being created
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/create-attempted-delivery'
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: Bad Request - returned if providing invalid data such as an unacceptable reason code
+    '401':
+      description: Unauthorized - consumer has not provided the necessary credentials
+    '404':
+      description: Resource not found 
+    '500':
+      description: Internal server error

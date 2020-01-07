@@ -1,7 +1,7 @@
-post:
+put:
   tags:
   - attempted-delivery-webhooks
-  summary: Attempted Delivery Event Created
+  summary: Delivery Attempt Failed
   description: "This webhook will be invoked whenever an attempted delivery event is created from the device."
   requestBody:
     required: true
