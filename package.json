@@ -13,7 +13,7 @@
     "gulp": "^4.0.1",
     "gulp-connect": "^5.7.0",
     "gulp-util": "^3.0.8",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "mime": "^2.4.2",
     "minimatch": "^3.0.4",
     "negotiator": "^0.6.2",
