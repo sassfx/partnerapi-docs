@@ -1,0 +1,9 @@
+type: array
+items:
+  type: object
+  properties:
+    Amount:
+      type: number
+      format: double
+    IsRecommended:
+      type: boolean

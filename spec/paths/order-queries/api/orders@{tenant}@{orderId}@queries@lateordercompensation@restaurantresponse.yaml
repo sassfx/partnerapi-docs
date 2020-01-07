@@ -1,0 +1,41 @@
+post:
+  tags:
+  - order-queries
+  summary: Update late order compensation request with Restaurant response 
+  description: If a customer has requested compensation for a late order, a restaurant response is given by calling this endpoint.
+  parameters:
+    - name: tenant
+      in: path
+      description: Request tenant.
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Id for the order.
+      required: true
+      schema:
+        type: string
+    - name: Authorization
+      in: header
+      description: Containing a partner issued API key e.g. JE-API-KEY ABCDE123456789
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    description: >-
+      The restaurant response to a late order compensation request. Indicates either a monetary amount (when the compensation is accepted); or a rejection reason (when compensation is rejected).
+    content:
+      application/json:
+        schema:
+          $ref: "#/definitions/late-order-compensation-restaurant-resolution"
+  responses:
+    '202':
+      description: Accepted
+    '400':
+      description: Bad Request. Returned if the request is invalid - e.g. contains missing or invalid parameters.
+    '401':
+      description: Unauthorized. Consumer is not authorized to modify the resource
+    '404':
+      description: Not Found. Order query or Order not found

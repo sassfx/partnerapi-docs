@@ -1,0 +1,24 @@
+type: object
+properties:
+  queryId:
+    type: string
+    description: The ID of the late order compensation request that this response relates to.
+  isAccepted:
+    type: boolean
+    description: Flag to indicate whether a compensation request has been accepted or rejected.
+  acceptedAmount:
+    type: integer
+    description: The monetary amount of compensation granted, in cents/pence. Required when isAccepted = true.
+  rejectedReasonCode:
+    type: string
+    enum:
+      - BadTraffic
+      - BadWeather
+      - BusierThanExpected
+      - CompensatedWithItem
+      - NoReason
+    description: The reason why a compensation request has been rejected. Required when isAccepted = false.
+example:
+  QueryId: 6852741234
+  IsAccepted: true
+  AcceptedAmount: 500

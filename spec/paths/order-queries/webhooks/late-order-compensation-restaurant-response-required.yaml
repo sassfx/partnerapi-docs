@@ -1,0 +1,14 @@
+post:
+  tags:
+  - order-query-webhooks
+  summary: late order compensation query, restaurant response required
+  description: "This webhook will be invoked when a late order compensation query has been raised and a restaurant response is required."
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "#/definitions/late-order-compensation-restaurant-response-required"
+  responses:
+    '200':
+      description: Respond with a 200 status code to indicate that you have received the notification.

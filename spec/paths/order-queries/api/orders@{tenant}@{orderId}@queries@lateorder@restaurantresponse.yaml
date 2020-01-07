@@ -1,0 +1,46 @@
+post:
+  tags:
+  - order-queries
+  summary: "Response to Late Order Update Request"
+  description: If a customer has requested an update on the status of a late order, a response can be given by calling this endpoint.
+  parameters:
+    - name: tenant
+      in: path
+      description: Request tenant.
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Id for the order.
+      required: true
+      schema:
+        type: string
+    - name: Authorization
+      in: header
+      description: Containing a partner issued API key e.g. JE-API-KEY ABCDE123456789
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    description: >-
+      An object for updating the status of a late order query with the amount of time to add to the delivery estimate in minutes (optional)
+    content:
+      application/json:
+        schema:
+          $ref: "#/definitions/late-order-restaurant-response"
+        example:
+          {
+            "LateOrderStatus": "Delayed",
+            "AdditionalDeliveryTimeToAddMinutes": "5",
+          }
+  responses:
+    '202':
+      description: Accepted
+    '400':
+      description: Bad Request. Returned if the request is invalid i.e. missing a required parameters
+    '401':
+      description: Unauthorized. Consumer is not authorized to modify the resource
+    '404':
+      description: Not Found. Order query or Order not found
