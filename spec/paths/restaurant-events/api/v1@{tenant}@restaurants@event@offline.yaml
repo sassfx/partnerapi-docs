@@ -1,0 +1,61 @@
+post:
+  tags:
+    - restaurant-events-api
+  summary: Create Offline Event
+  description: 'Creates an event for the specified restaurants that indicates a reason for those restaurants to be offline.'
+  parameters:
+    - name: tenant
+      in: path
+      required: true
+      description: The identifier for the tenant
+      schema:
+        type: string
+      x-position: 1
+    - name: X-JE-Requester
+      in: header
+      description: Name of the user or system creating the event. Used for auditing purposes
+      schema:
+        type: string
+      required: true
+    - name: X-JE-User-Role
+      in: header
+      schema:
+        $ref: '#/definitions/UserRole'
+      required: true
+  requestBody:
+    x-name: model
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/OfflineRestaurantsRequestModel'
+    required: true
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              restaurantEventId:
+                type: string
+                description: The ID of the offline event created
+              restaurantIds:
+                type: string
+                description: A CSV of the restaurant IDs added to the offline event
+            example:
+              {
+                "restaurantIds": '12345',
+                "restaurantEventId": '03bff206-d136-405f-b789-95190e9711a4'
+              }
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ValidationError'
+    '500':
+      description: Server Error
+  x-status: Stable

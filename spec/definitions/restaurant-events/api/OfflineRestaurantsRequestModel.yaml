@@ -1,0 +1,40 @@
+type: object
+additionalProperties: false
+required:
+  - restaurantIds
+  - name
+  - reason
+  - startDate
+  - allowRestaurantOverride
+properties:
+  restaurantIds:
+    type: string
+    description: A comma separated list of the IDs of the restaurants to include in the offline event. No limit to the number acccepted by the endpoint, but unexpected behaviour mat occur at more than 500 IDs.
+  name:
+    type: string
+    description: Name of the offline event to be created.
+  reason:
+    type: string
+    description: The reason for creating the offline event.
+  startDate:
+    type: string
+    description: ISO 8601 format of the start datetime of the offline event.
+    format: date-time
+    minLength: 1
+  endDate:
+    type: string
+    description: ISO 8601 format of the end datetime of the offline event.
+    format: date-time
+    minLength: 1
+  allowRestaurantOverride:
+    type: boolean
+    description: Whether a restaurant should be allowed to delete this event, regardless of who raised it.
+example:
+  {
+    "restaurantIds":"12345",
+    "name":"Out of Chicken",
+    "reason":"No more chicken in stock.",
+    "startDate":"2020-01-16T09:00:00",
+    "duration":"1:00:00",
+    "allowRestaurantOverride":true
+  }

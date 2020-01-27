@@ -1,0 +1,47 @@
+delete:
+  tags:
+    - restaurant-events-api
+  summary: Delete Offline Event
+  description: 'Removes specified restaurant from offline events. If role header is `System` or `Operations` only events created by the specified role will be affected. If role header is `Restaurant` then all events that have `allowRestaurantOverride=true` will be affected.'
+  parameters:
+    - name: tenant
+      in: path
+      required: true
+      description: The identifier for the tenant
+      schema:
+        type: string
+      x-position: 1
+    - name: id
+      in: path
+      required: true
+      description: The identifier for the restaurant
+      schema:
+        type: string
+      x-position: 2
+    - name: X-JE-Requester
+      in: header
+      description: Name of the user or system creating the event. Used for auditing purposes
+      schema:
+        type: string
+      required: true
+    - name: X-JE-User-Role
+      in: header
+      schema:
+        $ref: '#/definitions/UserRole'
+      required: true
+  responses:
+    '200':
+      description: No Events to Delete
+    '202':
+      description: Request Succeeded
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ValidationError'
+    '500':
+      description: Server Error
+  x-status: Stable

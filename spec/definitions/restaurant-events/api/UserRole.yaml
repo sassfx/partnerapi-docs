@@ -1,0 +1,12 @@
+type: string
+description: >-
+
+  - `System` : Role for an automated process action.
+
+  - `Operations` : Role for an operations user action.
+
+  - `Restaurant` : Role for a restaurant owner/employee user action.
+enum:
+  - System
+  - Operations
+  - Restaurant

@@ -160,6 +160,8 @@ tags:
     x-displayName: Restaurant API
   - name: restaurant-webhooks
     x-displayName: Restaurant Webhooks
+  - name: restaurant-events-api
+    x-displayName: Restaurant Events API
   - name: order-acceptance-api
     x-displayName: Order Acceptance API
   - name: order-acceptance-webhooks
@@ -202,6 +204,7 @@ x-tagGroups:
   - name: Restaurants
     tags:
       - restaurant-api
+      - restaurant-events-api
       - restaurant-webhooks
   - name: Logistics POS
     tags:

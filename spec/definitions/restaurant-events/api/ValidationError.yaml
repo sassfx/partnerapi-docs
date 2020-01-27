@@ -1,0 +1,48 @@
+type: object
+additionalProperties: false
+properties:
+  propertyName:
+    type: string
+    description: The name of the property causing the failure
+  errorMessage:
+    type: string
+    description: The error message
+  attemptedValue:
+    type: string
+    description: The property value that caused the failure
+  customState:
+    type: string
+    description: Custom state associated with the failure
+  severity:
+    type: number
+    description: Severity of a validation rule. Will always be 0 (Error).
+  errorCode:
+    type: string
+    description: The error code
+  formattedMessageArguments:
+    type: array
+    items:
+      type: string
+    description: Custom formatted validator messages with placeholders
+  formattedMessagePlaceHolderValues:
+    type: object
+    additionalProperties: true
+    description: The values for placeholders in the formatted messages
+  resourceName:
+    type: string
+    description: The resource name used for building the message
+example:
+  {
+    "propertyName": "TestProperty",
+    "errorMessage": "TestProperty is empty",
+    "attemptedValue": null,
+    "customState": null,
+    "severity": 0,
+    "errorCode": "NotEmptyValidator",
+    "formattedMessageArguments": [],
+    "formattedMessagePlaceholderValues": {
+        "PropertyName": "User Role",
+        "PropertyValue": null
+    },
+    "resourceName": null
+  }
